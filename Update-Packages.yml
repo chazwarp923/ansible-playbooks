@@ -1,6 +1,5 @@
 - hosts: Fedora
   become: true
-  become_user: root
   tasks:
     - name: Upgrade all dnf packages 
       ansible.builtin.dnf:
@@ -9,7 +8,6 @@
 
 - hosts: OMV
   become: true
-  become_user: root
   tasks:
     - name: Update apt packages
       ansible.builtin.apt: 
@@ -18,7 +16,6 @@
       
 - hosts: Ubuntu
   become: true
-  become_user: root
   tasks:
     - name: Update apt packages
       ansible.builtin.apt: 
