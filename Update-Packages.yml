@@ -2,7 +2,7 @@
   become: true
   become_user: root
   tasks:
-    - name: Upgrade all packages through dnf
+    - name: Upgrade all dnf packages 
       ansible.builtin.dnf:
         name: "*"
         state: latest
@@ -11,18 +11,16 @@
   become: true
   become_user: root
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      ansible.builtin.apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-
-    - name: Upgrade all packages on servers
-      ansible.builtin.apt: upgrade=dist force_apt_get=yes
+    - name: Update apt packages
+      ansible.builtin.apt: 
+        upgrade: yes
+        update_cache: yes
       
 - hosts: Ubuntu
   become: true
   become_user: root
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      ansible.builtin.apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-
-    - name: Upgrade all packages on servers
-      ansible.builtin.apt: upgrade=dist force_apt_get=yes
+    - name: Update apt packages
+      ansible.builtin.apt: 
+        upgrade: yes
+        update_cache: yes
