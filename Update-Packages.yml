@@ -1,4 +1,6 @@
 - hosts: Fedora
+  vars:
+    ansible_host_key_checking: false
   become: true
   tasks:
     - name: Upgrade all dnf packages 
@@ -7,6 +9,8 @@
         state: latest
 
 - hosts: OMV
+  vars:
+    ansible_host_key_checking: false
   become: true
   tasks:
     - name: Update apt packages
@@ -15,6 +19,8 @@
         update_cache: yes
       
 - hosts: Ubuntu
+  vars:
+    ansible_host_key_checking: false
   become: true
   tasks:
     - name: Update apt packages
